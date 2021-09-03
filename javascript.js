@@ -3,10 +3,16 @@ window.onload = function () {
   let inputEmail = document.querySelector('.form__input[name="email"]');
   let inputPassword = document.querySelector('.form__input[name="password"]');
   let inputConfPassword = document.querySelector('.form__input[name="сonf-password"]');
+  let fileInput = document.querySelector('.file__input');
+  let filePreview = document.querySelector('.file__preview');
   let nameRegex = /^[a-zA-Z0-9\-]{7,}$/;
   let emailRegxp =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let passwordRegxp = /^[a-zA-Z0-9!@#$%^&*()\-]{7,}$/;
+
+  fileInput.addEventListener('change', () => {
+    uploadFile(fileInput.files[0]);
+  });
   document.querySelector('.form__button').addEventListener('click', checkValidation);
 
   function checkValidation(e) {
@@ -78,5 +84,26 @@ window.onload = function () {
         errorText.classList.add('error');
       }
     }
+  }
+
+  function uploadFile(file) {
+    if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+      alert('only images allowed');
+      fileInput.value = '';
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      alert('the file must be less than 2 MB.');
+      return;
+    }
+
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      filePreview.innerHTML = `<img src="${e.target.result}" alt="photo">`;
+    };
+    reader.onerror = (e) => {
+      alert('error');
+    };
+    reader.readAsDataURL(file);
   }
 };
