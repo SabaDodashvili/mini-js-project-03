@@ -4,6 +4,7 @@
   --chosen-color: #1a73a8;
   --btn-color: #348fc6;
   --error-color: #e23131;
+  --correct-color: #67ff41;
 }
 .form {
   max-width: 370px;
@@ -32,6 +33,7 @@
   background: transparent;
   outline: none;
   transition: 0.3s all ease 0s;
+  margin: 0 0 5px 0;
 }
 .form__input.error {
   border-bottom-color: var(--error-color);
@@ -55,6 +57,16 @@
   transition: 0.3s all ease 0s;
 }
 .form__error-text {
+  display: inline-block;
+  font-size: 12px;
+  height: 12px;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--error-color);
+}
+.form__error-text.error {
+  opacity: 1;
+  visibility: visible;
 }
 .choose-sex {
 }

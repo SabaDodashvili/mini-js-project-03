@@ -12,24 +12,24 @@
     <form class="form" action="#">
       <h1 class="form__title">Registration</h1>
       <div class="form__item">
-        <input class="form__input" type="text" name="name" placeholder=" " />
+        <input class="form__input" type="text" name="name" maxlength="20" placeholder=" " />
         <label class="form__label">Name</label>
-        <span class="form__error-text"></span>
+        <span class="form__error-text">name is not valid</span>
       </div>
       <div class="form__item">
         <input class="form__input" type="email" name="email" placeholder=" " />
         <label class="form__label">Email</label>
-        <span class="form__error-text"></span>
+        <span class="form__error-text">email is not valid</span>
       </div>
       <div class="form__item">
-        <input class="form__input" type="password" name="password" placeholder=" " />
+        <input class="form__input" type="password" name="password" maxlength="25" placeholder=" " />
         <label class="form__label">Password</label>
-        <span class="form__error-text"></span>
+        <span class="form__error-text">password is not valid</span>
       </div>
       <div class="form__item">
-        <input class="form__input" type="password" name="сonf-password" placeholder=" " />
+        <input class="form__input" type="password" name="сonf-password" maxlength="25" placeholder=" " />
         <label class="form__label">Repeat Password</label>
-        <span class="form__error-text"></span>
+        <span class="form__error-text">passwords do not match</span>
       </div>
       <div class="form__item choose-sex">
         <h2 class="choose-sex__title">Choose Sex</h2>
