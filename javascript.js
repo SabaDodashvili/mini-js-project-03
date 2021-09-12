@@ -16,29 +16,13 @@ window.onload = function () {
   document.querySelector('.form__button').addEventListener('click', checkValidation);
 
   function checkValidation(e) {
-    if (nameRegex.test(inputName.value)) {
-      assignCorrectStatus(inputName, true);
-    } else {
-      assignCorrectStatus(inputName, false);
-    }
+    nameRegex.test(inputName.value) ? assignCorrectStatus(inputName, true) : assignCorrectStatus(inputName, false);
+    emailRegxp.test(inputEmail.value) ? assignCorrectStatus(inputEmail, true) : assignCorrectStatus(inputEmail, false);
+    passwordRegxp.test(inputPassword.value) ? assignCorrectStatus(inputPassword, true) : assignCorrectStatus(inputPassword, false);
+    inputConfPassword.value === inputPassword.value && inputPassword.value
+      ? assignCorrectStatus(inputConfPassword, true)
+      : assignCorrectStatus(inputConfPassword, false);
 
-    if (emailRegxp.test(inputEmail.value)) {
-      assignCorrectStatus(inputEmail, true);
-    } else {
-      assignCorrectStatus(inputEmail, false);
-    }
-
-    if (passwordRegxp.test(inputPassword.value)) {
-      assignCorrectStatus(inputPassword, true);
-    } else {
-      assignCorrectStatus(inputPassword, false);
-    }
-
-    if (inputConfPassword.value === inputPassword.value && inputPassword.value) {
-      assignCorrectStatus(inputConfPassword, true);
-    } else {
-      assignCorrectStatus(inputConfPassword, false);
-    }
     e.preventDefault();
   }
 
